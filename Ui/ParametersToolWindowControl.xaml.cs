@@ -6,6 +6,7 @@
     using VSRipGrep.Models;
     using System.ComponentModel;
 
+
     /// <summary>
     /// Interaction logic for ParametersToolWindowControl.
     /// </summary>
@@ -76,6 +77,15 @@
             if (toolWindow != null)
             {
                 toolWindow.SizeToContent = SizeToContent.Height;
+            }
+
+            if (Parameters.Path == @"C:\")
+            {
+                var dte = Microsoft.VisualStudio.Shell.Package.GetGlobalService(typeof(EnvDTE.DTE)) as EnvDTE.DTE;
+                if (dte?.Solution?.FullName is string solution && !string.IsNullOrEmpty(solution))
+                {
+                    Parameters.Path = System.IO.Path.GetDirectoryName(solution);
+                }
             }
         }
 
