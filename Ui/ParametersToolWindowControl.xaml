@@ -23,7 +23,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <TextBlock Margin="0,0,0,4" Grid.Row="0"><Run Text="Find what:"/></TextBlock>
-        <TextBox x:Name="Pattern" Margin="0,0,0,4" TextWrapping="NoWrap" Text="{Binding Path=Pattern}" Grid.Row="1"/>
+        <TextBox x:Name="Pattern" Margin="0,0,0,4" TextWrapping="NoWrap" Text="{Binding Path=Pattern}" Grid.Row="1" KeyDown="TextBox_KeyDown"/>
         <TextBlock Margin="0,0,0,4" Grid.Row="2"><Run Text="Look in:"/></TextBlock>
         <Grid Margin="0,0,0,8" Height="Auto" Grid.Row="3">
             <Grid.ColumnDefinitions>
@@ -31,7 +31,7 @@
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <TextBox TextWrapping="NoWrap" Text="{Binding Path=Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox TextWrapping="NoWrap" Text="{Binding Path=Path, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" KeyDown="TextBox_KeyDown"/>
             <Button Content=" ... " Grid.Column="2" Click="SelectFolder_Click"/>
         </Grid>
         <Separator Margin="0,0,0,4" Grid.Row="4" />

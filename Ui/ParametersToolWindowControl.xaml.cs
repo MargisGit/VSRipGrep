@@ -48,6 +48,14 @@
             }
         }
 
+        private void TextBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == System.Windows.Input.Key.Enter && FindAll.IsEnabled)
+            {
+                FindAll_Click(sender, e);
+            }
+        }
+
         private void FindAll_Click(object sender, RoutedEventArgs e)
         {
             var resultsToolWindowControl = ToolWindowFactory.ShowResultsToolWindow()?.Content as ResultsToolWindowControl;
